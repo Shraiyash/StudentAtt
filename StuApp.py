@@ -37,7 +37,7 @@ def AddStu():
     first_name = request.form['first_name']
     last_name = request.form['last_name']
     date = request.form['date']
-    location = request.form['location']
+    course = request.form['course']
     stu_image_file = request.files['stu_image_file']
 
     insert_sql = "INSERT INTO student VALUES (%s, %s, %s, %s, %s)"
@@ -48,7 +48,7 @@ def AddStu():
 
     try:
 
-        cursor.execute(insert_sql, (stu_id, first_name, last_name, date, location))
+        cursor.execute(insert_sql, (stu_id, first_name, last_name, date, course))
         db_conn.commit()
         stu_name = "" + first_name + " " + last_name
         # Uplaod image file in S3 #
